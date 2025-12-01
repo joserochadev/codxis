@@ -1,0 +1,12 @@
+{
+  "name": "@codxis/prettier",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.mjs",
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "@codxis/prettier": "workspace:*"
+  },
+  "prettier": "@codxis/prettier"
+}
