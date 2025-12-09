@@ -7,9 +7,6 @@ services:
       - POSTGRESQL_PASSWORD=docker
       - POSTGRESQL_DATABASE=codxis
     volumes:
-      - postgres_data:/bitnami/postgresql
+      - ./docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
     ports:
       - "5432:5432"
-
-volumes:
-  postgres_data:

@@ -1,8 +1,16 @@
 import fastify from 'fastify'
+import {
+  serializerCompiler,
+  validatorCompiler,
+  ZodTypeProvider,
+} from 'fastify-type-provider-zod'
 
 import { downloadVideoRoute } from './routes/download-video'
 
-const app = fastify()
+const app = fastify().withTypeProvider<ZodTypeProvider>()
+
+app.setValidatorCompiler(validatorCompiler)
+app.setSerializerCompiler(serializerCompiler)
 
 app.get('/health', (request, reply) => {
   return reply.send({ status: 'ok', timestamp: new Date().toISOString() })
