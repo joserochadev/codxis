@@ -1,12 +1,12 @@
 services:
   postgres:
-    image: bitnami/postgresql:latest
+    image: pgvector/pgvector:pg17
     container_name: codxis_postgres
     environment:
-      - POSTGRESQL_USERNAME=docker
-      - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=codxis
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: codxis
     volumes:
       - ./docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql
     ports:
-      - "5432:5432"
+      - '5432:5432'

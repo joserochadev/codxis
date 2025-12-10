@@ -24,14 +24,15 @@ enum SystemType {
 }
 
 model Video {
-  id               String      @id @default(uuid())
+  id               String                      @id @default(uuid())
   title            String
   description      String?
   transcription    String?
+  embeddings       Unsupported("vector(768)")?
   videoUrl         String
   thumbnailUrl     String?
   system           SystemType?
   videoPublishDate DateTime
-  createdAt        DateTime    @default(now())
-  updatedAt        DateTime    @updatedAt
+  createdAt        DateTime                    @default(now())
+  updatedAt        DateTime                    @updatedAt
 }
